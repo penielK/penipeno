@@ -36,6 +36,9 @@ include 'actionF.php';
                   <div class="card-header">
                   <form action="actionF.php" method="POST" enctype="multipart/form-data">
                     <h4>Formateurs</h4>
+                    <i id="sousCate"></i>
+
+    
                     </div>
                     <div class="card-body">
                     <div class="form-row">
@@ -59,7 +62,7 @@ include 'actionF.php';
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <select id="" class="custom-select" name="formation">
+                        <select onchange="getmodules(this.value)" class="custom-select" name="formation" id='formations'>
                           <option >--types Formations-</option>
                           <?php
                             try {
@@ -70,20 +73,24 @@ include 'actionF.php';
                               $tab = $rep->fetchAll();
                               foreach ($tab as $element){
                             ?>
-                            <option value="<?= $element['nom_formation']; ?>"> <?php echo $element['nom_formation']; ?> </option>
+                            <option value="<?= $element['id']; ?>"> <?php echo $element['nom_formation']; ?> </option>
                             <?php
                                       }
                           } catch (PDOExceptiom $e) {
                               echo "erreur: ".$e->getMessage();
                             }
+                      
+                           
                             ?>
+
+
                           <option></option>
                         </select>
                       </div>
                       <div class="form-group col-md-6">
-                        <select id="" class="form-control" name="modules">
-                          <option>Modules</option>
-                          <option>...</option>
+                        <b id='spiner'></b>
+                        <select id="modules" class="form-control" name="modules">
+                        <option>Modules</option>
                         </select>
                       </div>
                       <div class="form-group col-md-15">
@@ -113,19 +120,29 @@ include 'actionF.php';
 
 
   </div>
-  <!-- General JS Scripts -->
   <?php  include ("includes/footer.php"); ?>
-  <!-- General JS Scripts -->
   <script src="assets/js/app.min.js"></script>
-  <!-- JS Libraies -->
-  <script src="assets/bundles/sweetalert/sweetalert.min.js"></script>
-  <!-- Page Specific JS File -->
-  <script src="assets/js/page/sweetalert.js"></script>
-  <!-- Template JS File -->
-  <script src="assets/js/scripts.js"></script>
-  <!-- Custom JS File -->
-  <script src="assets/js/custom.js"></script>
-  <?php  include ("includes/footer.php"); ?>
+  <script>
+function getmodules(formation) {
+  $("#spiner").empty().append('<i class="fa fa-spinner fa-spin"></i> <b>loading</b>').css('color','red');
+  if (formation == "") {
+    document.getElementById("formation").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("modules").innerHTML = this.responseText;
+      }
+    };
+    setTimeout(()=>{
+      xmlhttp.open("GET","ajaxFiles/typeformation.php?formation="+formation,true);
+      xmlhttp.send();
+      $("#spiner").remove();
+    },3000)                  
+  }
+}
+  </script>
 
 </body>
 </html>

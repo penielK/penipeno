@@ -30,7 +30,7 @@
         <form action="actionF.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label>Formations</label>
-           <select name="" id="" class="custom-select">
+           <select name="" id="select1" class="custom-select"  onchange="populate(this.id'select2')">
             <option value="">-- types Formation--</options>
             <!-- recuperer-->
           <?php
@@ -52,7 +52,7 @@
          </select>
       </div>
           <label>Modules</label>
-           <select name="" id="" class="custom-select">
+           <select name="" id="select2" class="custom-select">
             <option value="">-- types Modules--</options>
           </select>
       </div>

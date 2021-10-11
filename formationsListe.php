@@ -108,5 +108,6 @@
                                 
                         </script>
      </script>
+     <a class="btn btn-primary" href="formationsaddaction.php" role="button">Ajout Formations</a>
   </body>
   </html>

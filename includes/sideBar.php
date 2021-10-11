@@ -37,10 +37,9 @@
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="flag"></i><span>Certifications</span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Certifications</a></li>
-                <li class="dropdown">
-                  <a href="#" class="has-dropdown">liste Certifications</a>
-                  <ul class="dropdown-menu">
+                <li><a href="statuscertif.php">Certifications</a></li>
+                <li><a class="nav-link" href="ajoutcertif.php">Certifications ADD</a></li>
+                
 
                       </ul>
                     </li>

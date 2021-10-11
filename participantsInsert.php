@@ -44,6 +44,11 @@
                             <input type="text" name="habitation" value="<?php if(isset($_GET["edit"])){echo $resultat["lieux_habitations"];} ?>" class="form-control" placeholder="Habitation" required="required">
                           </div>
                           <div class="form-group col-md-6">
+                            <select name="" id="" class="custom-select">
+                            <option value="">-- types Modules--</options>
+                          </select>
+                         </div>
+                          <div class="form-group col-md-12">
                             <select id="" class="custom-select" name="formation">
                               <option >--types Formations--</option>
                               <?php
@@ -62,6 +67,7 @@
                                   echo "erreur: ".$e->getMessage();
                                 }
                                 ?>
+                                
                               <option></option>
                             </select>
                           </div>
@@ -76,7 +82,7 @@
                          if ($update==true){ ?>
                          <input type="submit" name="update" class="btn btn-success btn-success" value="Modifier"style="width: 320px; height: 40px;">
                        <?php } else{ ?>
-                     <input type="submit" name="add" class="btn btn-primary btn-block" value="Ajouter">
+                     <input type="submit" id=" " name="add" class="btn btn-primary btn-block" value="Ajouter">
                      <?php } ?>
                      
                        </div>
@@ -89,6 +95,8 @@
     </div>
 
   <!-- General JS Scripts -->
+
   <?php  include ("includes/footer.php"); ?>
+  
   </body>
   </html>

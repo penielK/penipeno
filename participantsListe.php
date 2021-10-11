@@ -123,5 +123,6 @@
                                 
                         </script>
      </script>
+     <a class="btn btn-primary" href="participantsInsert.php" role="button">Ajout participants</a>
   </body>
   </html>

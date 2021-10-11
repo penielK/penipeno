@@ -36,18 +36,20 @@
                   <div class="card">
                       <div class="card-header">
                         <h4>Liste Formateurs</h4>
+                        
                       </div>
                       <div class="card-body">
                         <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                              
                           <thead>
+                            
                                 <tr>
                                   <th>Nom</th>
                                   <th>Prenom</th>
                                   <th>E-mail</th>
                                   <th>Telephone</th>
                                   <th>Habitation</th>
-                                  <th>Formations</th>
+                                  <th>Type Formations</th>
                                   <th>Modules</th>
                                   <th>Date debut(formations)</th>
                                   <th>Action</th>
@@ -79,6 +81,9 @@
                               <?php   }
                             }
                             ?>
+                            <br>
+                            
+                            
                       </tbody>
                           </table>
                           
@@ -111,8 +116,11 @@
                           ]
                       } );
                   } );
-                                
+                  
+                  
                         </script>
      </script>
+     <a class="btn btn-primary" href="formateursInsert.php" role="button">Ajout Formateurs</a>
+     
   </body>
   </html>
